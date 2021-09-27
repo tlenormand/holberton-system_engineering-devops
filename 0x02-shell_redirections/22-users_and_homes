@@ -1,2 +1,2 @@
 #!/bin/bash
-getent passwd
+getent passwd | cut -f1,3,6 -d:
