@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -c1 acrostic | tr -d '\n' | xargs -n1 echo
+cut -c1 acrostic | tr -d '\n' | xargs echo
