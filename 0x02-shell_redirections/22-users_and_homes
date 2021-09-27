@@ -1,2 +1,2 @@
 #!/bin/bash
-getent passwd | cut -f1,1,6 -d:
+getent passwd | cut -f1,1,6 -d: | sort -g
