@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l | paste - - | cut -f1 | rev | cut -d ' ' -f 1 | rev
+ls -l | paste - - | cut -f2 | rev | cut -d ' ' -f 1 | rev
