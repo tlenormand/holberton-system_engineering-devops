@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "ASCII" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+echo "ASCII" | tr "$(echo -n {A..Z} {a..z} | tr -d ' ')" "$(echo -n {N..Z} {A..M} {n..z} {a..m} | tr -d ' ')"
