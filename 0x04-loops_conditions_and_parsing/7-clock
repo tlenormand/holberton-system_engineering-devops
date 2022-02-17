@@ -8,7 +8,7 @@ do
     do
         if [ $min == 0 ]
         then
-            echo "Hour : $hour"
+            echo "Hour: $hour"
         else
             echo "$min"
         fi
