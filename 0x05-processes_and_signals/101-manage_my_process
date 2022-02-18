@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Bash (init) script 101-manage_my_process that manages manage_my_process
+ARG=("$@")
+if [ $# -eq 1 ]; then
+    if [ $ARG == "start" ]; then
+        ./manage_my_process &
+        sudo touch /var/run/myscript.pid
+        echo $(pgrep -f ./manage_my_process) >> /var/run/myscript.pid
+        echo "manage_my_process started"
+    elif [ $ARG == "stop" ]; then
+        kill "$(pgrep -f ./manage_my_process)"
+        sudo rm -f /var/run/my_process.pid
+        echo "manage_my_process stopped"
+    elif [ $ARG == "restart" ]; then
+        kill "$(pgrep -f ./manage_my_process)"
+        sudo rm -f /var/run/my_process.pid
+        ./manage_my_process &
+        sudo touch /var/run/myscript.pid
+        echo $(pgrep -f ./manage_my_process) >> /var/run/myscript.pid
+        echo "manage_my_process started"
+    fi
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
