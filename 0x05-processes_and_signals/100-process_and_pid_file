@@ -11,7 +11,7 @@ sudo bash -c "echo $(pgrep -f ./100-process_and_pid_file) > /var/run/myscript.pi
 while true; do
     echo "To infinity and beyond"
     sleep 2
-    trap "echo I hate the kill command" SIGTERM
-    trap "sudo rm -f /var/run/myscript.pid; exit" SIGQUIT SIGTERM
+    trap "echo I hate the kill command; sudo rm -f /var/run/myscript.pid; exit" SIGTERM
     trap "echo Y U no love me?!" SIGINT
+    trap "sudo rm -f /var/run/myscript.pid; exit" SIGQUIT
 done
