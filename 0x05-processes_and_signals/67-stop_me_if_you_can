@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bash script that send signal to 7-highlander
+kill -s SIGTERM "$(pgrep -f 7-highlander)"
