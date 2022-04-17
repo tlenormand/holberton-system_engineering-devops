@@ -6,5 +6,5 @@ file_line { 'ssh_config PasswordAuthentication':
 
 file_line { 'ssh_config IdentityFile':
   path => '/etc/ssh/ssh_config',
-  line => '    IdentityFile ~/.ssh/holberton',
+  line => '    IdentityFile ~/.ssh/school',
 }
