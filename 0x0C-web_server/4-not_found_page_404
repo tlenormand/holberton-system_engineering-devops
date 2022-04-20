@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-# Configure Nginx server so that /redirect_me is redirecting to another page
-# apt-get update -y
-# apt-get install -y nginx
-# echo "Hello World!" > /var/www/html/index.nginx-debian.html
-# service nginx restart
+# configures Nginx server to have a custom 404 page
 
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install nginx
 bash -c 'echo Hello World > /var/www/html/index.nginx-debian.html'
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sed -i '/^\s*server_name \_\;$/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
+sed -i '/^\s*location \/ {$/a error_page 404 /custom_404.html;' /etc/nginx/sites-enabled/default
 service nginx restart
