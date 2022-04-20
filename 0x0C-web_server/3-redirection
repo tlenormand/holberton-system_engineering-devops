@@ -2,7 +2,7 @@
 # Configure Nginx server so that /redirect_me is redirecting to another page
 sudo mkdir /etc/nginx/redirect_me
 sudo touch /etc/nginx/redirect_me/redirects.conf
-newString = '/listen 80 default_server;/n\tlisten [::]:80 default_server;\antrewrite ^ /redirect_me permanent;'
-stringToReplace = '/listen 80 default_server;/n\tlisten [::]:80 default_server;'
-sed -i 's/$stringToReplace/$newString' /etc/nginx/sites-available/default
+newString="/listen 80 default_server;/n\tlisten [::]:80 default_server;\antrewrite ^ /redirect_me permanent;"
+stringToReplace="/listen 80 default_server;/n\tlisten [::]:80 default_server;"
+sed -i "s/$stringToReplace/$newString" /etc/nginx/sites-available/default
 sudo service nginx restart
