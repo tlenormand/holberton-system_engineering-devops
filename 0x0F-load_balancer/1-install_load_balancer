@@ -2,12 +2,12 @@
 # Install and configure HAproxy on lb-01 server
 apt -y update && apt -y upgrade;
 apt install -y haproxy;
-echo "frontend haproxy-main
+echo "frontend http
     bind *:80
     mode http
-    default_backend apache_webservers
+    default_backend web-backend
 
-backend apache_webservers
+backend web-backend
     balance roundrobin
     server 3627-web-01	34.139.172.50:80 check
     server 3627-web-02	35.243.158.214:80 check" >> /etc/haproxy/haproxy.cfg;
