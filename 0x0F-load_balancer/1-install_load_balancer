@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Install and configure HAproxy on lb-01 server
-apt -y update;
+apt -y update && upgrade -y;
 apt install -y haproxy;
 echo "frontend http
     bind *:80
@@ -11,4 +11,4 @@ backend web-backend
     balance roundrobin
     server 3627-web-01	34.139.172.50:80 check
     server 3627-web-02	35.243.158.214:80 check" >> /etc/haproxy/haproxy.cfg;
-service restart haproxy;
+service haproxy restart;
