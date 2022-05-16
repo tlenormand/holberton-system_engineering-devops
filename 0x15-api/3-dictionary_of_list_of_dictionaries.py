@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# api fetch
+''' export data in the JSON format '''
 import requests
 import sys
 import json

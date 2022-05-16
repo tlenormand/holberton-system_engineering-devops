@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# api fetch
+''' api fetch '''
 import requests
 import sys
 
