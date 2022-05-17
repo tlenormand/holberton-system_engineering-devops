@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' export to json '''
+import json
 import requests
 import sys
-import json
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' export to csv '''
+import csv
 import requests
 import sys
-import csv
 
 
 if __name__ == "__main__":
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     todoList = []
 
-    f = open(f'{userId}.csv', 'w')
+    f = open('{}.csv'.format(userId), 'w')
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
     for idx in json:
         writer.writerow([userId, userName, idx["completed"], idx["title"]])
