@@ -10,7 +10,7 @@ if __name__ == "__main__":
             sys.argv[1]
         )
     )
-    userName = userNameRequest.json()["username"]
+    userName = userNameRequest.json()["name"]
     response = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}/todos".format(
             sys.argv[1]
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         total += 1
 
     print(
-        "Employee {} Howell is done with tasks({}/{}):".format(
+        "Employee {} is done with tasks({}/{}):".format(
             userName,
             did,
             total
