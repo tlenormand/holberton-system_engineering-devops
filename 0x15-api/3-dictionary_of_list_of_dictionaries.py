@@ -8,7 +8,7 @@ import json
 if __name__ == "__main__":
 
     userNameRequest = requests.get(
-        f"https://jsonplaceholder.typicode.com/users"
+        "https://jsonplaceholder.typicode.com/users"
     )
     users = userNameRequest.json()
 
@@ -17,7 +17,9 @@ if __name__ == "__main__":
     for user in users:
         userId = user["id"]
         response = requests.get(
-            f"https://jsonplaceholder.typicode.com/users/{userId}/todos"
+            "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+                userId
+            )
         )
         todos = response.json()
 
@@ -29,6 +31,6 @@ if __name__ == "__main__":
                 "completed": todo["completed"]
             })
 
-    f = open(f'todo_all_employees.json', 'w')
+    f = open('todo_all_employees.json', 'w')
     json.dump(dataDict, f)
     f.close()

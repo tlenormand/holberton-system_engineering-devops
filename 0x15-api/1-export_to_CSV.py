@@ -7,12 +7,16 @@ import csv
 
 if __name__ == "__main__":
     userRequest = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
+        "https://jsonplaceholder.typicode.com/users/{}".format(
+            sys.argv[1]
+        )
     )
     userName = userRequest.json()["username"]
     userId = userRequest.json()["id"]
     response = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}/todos"
+        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+            sys.argv[1]
+        )
     )
     json = response.json()
 
