@@ -6,11 +6,15 @@ import sys
 
 if __name__ == "__main__":
     userNameRequest = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
+        "https://jsonplaceholder.typicode.com/users/{}".format(
+            sys.argv[1]
+        )
     )
     userName = userNameRequest.json()["username"]
     response = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}/todos"
+        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+            sys.argv[1]
+        )
     )
     json = response.json()
 
@@ -25,6 +29,13 @@ if __name__ == "__main__":
             did += 1
         total += 1
 
-    print(f"Employee {userName} Howell is done with tasks({did}/{total}):")
+    print(
+        "Employee {} Howell is done with tasks({}/{}):".format(
+            userName,
+            did,
+            total
+        )
+    )
+
     for idx in todoList:
-        print("\t" + idx)
+        print("\t " + idx)
