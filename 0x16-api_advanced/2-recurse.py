@@ -33,9 +33,11 @@ def recurse(subreddit, hot_list=[], after=None):
         params={'after': after}
     )
 
-    data = response.json()["data"]
+    if response.status_code == 404:
+        return None
 
-    if response.status_code == 404 or data["after"] is None:
+    data = response.json()["data"]
+    if data["after"] is None:
         if len(hot_list) == 0:
             return None
 
